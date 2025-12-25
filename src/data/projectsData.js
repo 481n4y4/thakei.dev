@@ -35,7 +35,7 @@ WarungKula is specifically designed for Indonesian small businesses (warungs) to
     date: "October 2025",
     status: "Completed",
     role: "Full Stack Developer",
-    duration: "1 months",
+    duration: "2 Weeks",
   },
   {
     id: "cineview",
@@ -59,7 +59,7 @@ Cineview integrates with The Movie Database (OMDB) API to provide up-to-date mov
     date: "September 2025",
     status: "Completed",
     role: "Frontend Developer",
-    duration: "1 months",
+    duration: "2 Weeks",
   },
   {
     id: "karbonis",
@@ -83,7 +83,7 @@ Karbonis uses scientifically validated emission factors to provide accurate calc
     date: "July 2025",
     status: "Completed",
     role: "Frontend Developer",
-    duration: "1 month",
+    duration: "2 Weeks",
   },
   {
     id: "mindkeeper",
@@ -137,7 +137,7 @@ Hidden Voice was developed to address communication challenges faced by individu
       "Web Speech API",
     ],
     date: "March 2025",
-    status: "Completed",
+    status: "Uncompleted",
     role: "Project Manager",
     duration: "3 months",
   },
