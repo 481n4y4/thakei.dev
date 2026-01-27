@@ -143,6 +143,14 @@ function About() {
               management skills, which help me collaborate effectively and turn
               creative ideas into functional products.
             </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <a
+                href="https://drive.google.com/uc?export=download&id=1NpDRK_eSBVLpedeUc1dua2C6b-Bbrb2J"
+                className="group bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-4 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 font-semibold shadow-lg"
+              >
+                Download CV
+              </a>
+            </div>
           </div>
         </div>
       </section>

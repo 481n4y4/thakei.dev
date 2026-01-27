@@ -1,7 +1,11 @@
 import { ReactTyped } from "react-typed";
 import khei from "../assets/img/khei.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faCode } from "@fortawesome/free-solid-svg-icons";
+import { 
+  faCode, 
+  faArrowRight,
+  faEnvelope,
+} from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 import projects from "../data/projectsData";
 import certificate from "../data/certificate";
@@ -24,21 +28,43 @@ function Home() {
         id="hero"
         className="relative bg-gradient-to-t from-gray-900 via-purple-900 to-black text-white overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6"
       >
+        {/* Simple Code Background */}
+        <div className="absolute inset-0 overflow-hidden opacity-10">
+          <div className="absolute top-10 left-5 text-purple-400 font-mono text-sm">
+            {`function Developer() {`}
+            <br />
+            {`  return "Hello World!";`}
+            <br />
+            {`}`}
+          </div>
+          <div className="absolute bottom-20 right-5 text-purple-300 font-mono text-sm">
+            {`<Code passion="true" />`}
+          </div>
+        </div>
+
         <div className="z-10 text-center max-w-4xl">
-          <div className="inline-flex items-center gap-2 bg-purple-900/30 border border-purple-500/30 rounded-full px-4 py-2 mb-6">
-            <FontAwesomeIcon
-              icon={faCode}
-              className="text-purple-400 text-sm"
-            />
-            <span className="text-sm text-purple-200">Frontend Developer</span>
+          {/* Terminal Badge */}
+          <div className="inline-flex items-center gap-2 bg-purple-800/50 border border-purple-500 rounded-full px-4 py-2 mb-6">
+            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+            <span className="text-sm text-purple-200 font-mono">
+              thakei.dev
+            </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
+          {/* Main Heading */}
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
+              Hi, I'm Abinaya
+            </span>
+          </h1>
+
+          {/* Typed Effect */}
+          <div className="text-2xl md:text-3xl text-purple-300 font-mono mb-6 h-12">
             <ReactTyped
               strings={[
-                "Hi, I'm Abinaya",
                 "FullStack Developer",
                 "Creative Coder",
+                "Tech Enthusiast"
               ]}
               typeSpeed={70}
               backSpeed={40}
@@ -46,31 +72,60 @@ function Home() {
               cursorChar="|"
               loop={true}
             />
-          </h1>
+          </div>
 
-          <p className="mt-6 md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Passionate about building clean, responsive web applications with
-            modern technologies and creating exceptional user experiences.
-          </p>
+          {/* Description */}
+          <div className="mt-6 p-6 bg-purple-900/30 backdrop-blur-sm border border-purple-700/50 rounded-xl max-w-2xl mx-auto">
+            <p className="md:text-xl text-gray-300 leading-relaxed">
+              I turn{" "}
+              <span className="text-purple-300 font-semibold">ideas</span> into{" "}
+              <span className="text-purple-300 font-semibold">
+                digital solutions
+              </span>{" "}
+              with clean code and modern technologies.
+            </p>
 
+            {/* Tech Stack */}
+            <div className="mt-4 flex flex-wrap gap-2 justify-center">
+              {[
+                "React",
+                "Node.js",
+                "MongoDB",
+                "Tailwind",
+                "Express",
+              ].map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1 bg-purple-800/50 rounded-lg text-sm text-purple-200 border border-purple-700"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#projects"
-              className="group bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-4 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 font-semibold shadow-lg"
+              href="/projects"
+              className="group bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 font-semibold shadow-lg"
             >
-              View Projects
+              <FontAwesomeIcon icon={faCode} />
+              View My Work
               <FontAwesomeIcon
                 icon={faArrowRight}
                 className="group-hover:translate-x-1 transition-transform"
               />
             </a>
             <a
-              href="#about"
+              href="/about"
               className="border-2 border-purple-500 px-8 py-4 rounded-xl hover:bg-purple-500/10 transition-all duration-300 transform hover:-translate-y-1 font-semibold"
             >
               About Me
             </a>
           </div>
+
+          
         </div>
       </section>
 
@@ -120,7 +175,7 @@ function Home() {
               </a>
               <a
                 href="/about"
-                className="border-2 border-purple-500 px-8 py-4 rounded-xl hover:bg-purple-500/10 transition-all duration-300 transform hover:-translate-y-1 font-semibold"
+                className="border-2 border-purple-500 px-8 py-4 rounded-xl hover:bg-purple-500/10 transition-all duration-300 transform hover:-translate-y-1 font-semibold flex items-center justify-center"
               >
                 About Me
               </a>
