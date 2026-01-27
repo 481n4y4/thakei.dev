@@ -37,7 +37,7 @@ function Home() {
             <ReactTyped
               strings={[
                 "Hi, I'm Abinaya",
-                "Frontend Developer",
+                "FullStack Developer",
                 "Creative Coder",
               ]}
               typeSpeed={70}
@@ -65,10 +65,10 @@ function Home() {
               />
             </a>
             <a
-              href="#contact"
+              href="#about"
               className="border-2 border-purple-500 px-8 py-4 rounded-xl hover:bg-purple-500/10 transition-all duration-300 transform hover:-translate-y-1 font-semibold"
             >
-              Contact Me
+              About Me
             </a>
           </div>
         </div>
@@ -100,18 +100,31 @@ function Home() {
               Kheira Abinaya Gavin Lovedila
             </h3>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Hi my name is <strong>Kheira Abinaya</strong>. I’m a student at SMK Negeri 7 Semarang, majoring in Network and
-              Application Information System. Passionate about technology,
-              software development, and AI, I love building creative and
-              impactful digital solutions.
+              I am a student at SMK Negeri 7 Semarang majoring in Network and
+              Application Information Systems with a strong interest in software
+              development and artificial intelligence. I am experienced in
+              developing web interfaces using HTML, CSS, Tailwind CSS,
+              JavaScript, and React.js, and am currently exploring backend
+              development with Express.js, MongoDB, and Laravel. Active in
+              organizations and team projects, I possess collaboration,
+              leadership, and project management skills to deliver functional
+              digital solutions.
             </p>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              I’ve gained strong leadership and teamwork skills through school
-              projects and organizations, and I’m currently improving my
-              expertise in JavaScript, HTML, Tailwind CSS, and React. I’m always
-              eager to learn, create, and collaborate on innovative tech
-              projects.
-            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <a
+                href="https://drive.google.com/uc?export=download&id=1NpDRK_eSBVLpedeUc1dua2C6b-Bbrb2J"
+                className="group bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-4 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 font-semibold shadow-lg"
+              >
+                Download CV
+              </a>
+              <a
+                href="/about"
+                className="border-2 border-purple-500 px-8 py-4 rounded-xl hover:bg-purple-500/10 transition-all duration-300 transform hover:-translate-y-1 font-semibold"
+              >
+                About Me
+              </a>
+            </div>
           </div>
         </div>
       </section>

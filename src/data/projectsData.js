@@ -3,8 +3,41 @@ import mindkeeper from "../assets/img/projects/MindKeeper.png";
 import karbonis from "../assets/img/projects/Karbonis.png";
 import cineview from "../assets/img/projects/CineviewKidi.png";
 import warungkula from "../assets/img/projects/warungkula.png";
+import mindflow from "../assets/img/projects/MindFlow.png";
 
 const projects = [
+  {
+    id: "mindflow",
+    title: "MindFlow",
+    image: mindflow,
+    description:
+      "MindFlow is a productivity and creative-thinking web application that helps users capture, organize, and visualize ideas through intuitive mind flows and interactive interfaces.",
+    feature: `Core Features:
+• Capture and organize ideas visually
+• Interactive mind flow or brainstorming canvas
+• Intelligent idea clustering and tagging
+• Export maps and ideas to image or text formats
+• Search and filter past sessions
+• Cross-device responsive design
+• Dark/Light theme support
+• (Add other features from your project)`,
+    details: `Productivity & Brainstorming Solution:
+MindFlow enables users to turn raw thoughts into structured plans or mind maps. Designed for students, creators, and professionals, the app simplifies the process of brainstorming, planning, and visual thinking with a clean, user-friendly interface. (Update this to reflect your project's goals and value.)`,
+    repo: "https://github.com/481n4y4/MindFlow.git",
+    demo: "https://mindflow-sand.vercel.app/",
+    techStack: [
+      "Vite",
+      "React",
+      "JavaScript",
+      "Tailwind CSS",
+      "Express",
+      "MongoDB",
+    ],
+    date: "December 2025",
+    status: "In Progress",
+    role: "Full Stack Developer",
+    duration: "3 Weeks",
+  },
   {
     id: "warungkula",
     title: "WarungKula",
@@ -23,14 +56,14 @@ const projects = [
     details: `Business Solution:
 WarungKula is specifically designed for Indonesian small businesses (warungs) to digitalize their operations. The application helps business owners track inventory, manage sales, and analyze business performance through an intuitive interface that requires minimal technical knowledge.`,
     repo: "https://github.com/481n4y4/warungkula.git",
-    demo: "https://warungkula-app.vercel.app/",
+    demo: "https://warungkula.vercel.app/",
     techStack: [
       "Vite",
       "React",
       "JavaScript",
       "Tailwind CSS",
       "Chart.js",
-      "PWA",
+      "Firebase",
     ],
     date: "October 2025",
     status: "Completed",
@@ -141,7 +174,6 @@ Hidden Voice was developed to address communication challenges faced by individu
     role: "Project Manager",
     duration: "3 months",
   },
-  
 ];
 
 export default projects;

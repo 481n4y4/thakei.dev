@@ -124,24 +124,24 @@ function About() {
               Profile Resume
             </h3>
             <p className="text-lg text-gray-300 leading-relaxed">
-              A passionate Front-End Web Developer and student at SMK Negeri 7
-              Semarang, majoring in Network and Application Information System.
-              I’m enthusiastic about web development, technology, and artificial
-              intelligence, with a focus on creating innovative solutions that
-              make a real impact.
+              I am a student at SMK Negeri 7 Semarang majoring in Network and
+              Application Information Systems with a strong interest in
+              technology, software development, and artificial intelligence. I
+              enjoy turning ideas into meaningful digital solutions that have a
+              real impact.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
-              I’ve contributed to projects such as HiVo (Hidden Voice), an
-              AI-based application that translates sign language into text and
-              speech, and MindKeeper, a Samsung Innovation Campus project
-              focused on IoT and productivity.
+              Currently, I am proficient in using HTML, CSS, Tailwind CSS,
+              JavaScript, and React.js in web interface development.
+              Additionally, I am deepening my knowledge of backend development
+              using Express.js, MongoDB, and Laravel to build fully integrated
+              web applications.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Beyond technical skills, I actively engage in school organizations
-              where I’ve strengthened my leadership, teamwork, and project
-              management abilities. Skilled in JavaScript, HTML, Tailwind CSS,
-              React, Git, and GitHub, I’m always eager to learn, grow, and
-              collaborate on meaningful tech innovations.
+              Through active involvement in school organizations and various
+              team projects, I have developed leadership, teamwork, and project
+              management skills, which help me collaborate effectively and turn
+              creative ideas into functional products.
             </p>
           </div>
         </div>
