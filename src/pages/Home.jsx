@@ -5,6 +5,7 @@ import {
   faArrowRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import projects from "../data/projectsData";
 import certificate from "../data/certificate";
 import skills from "../data/skills";
@@ -47,8 +48,36 @@ function Home() {
     },
   };
 
+  // JSON-LD Schema for Person
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Abinaya",
+    "jobTitle": "FullStack Developer",
+    "url": "https://thakei.dev",
+    "sameAs": [
+      "https://github.com/481n4y4",
+      "https://linkedin.com/in/abinaya",
+    ]
+  };
+
   return (
     <main className="text-white min-h-screen font-sans blueprint-grid">
+      <Helmet>
+        <title>thakei.dev — FullStack Developer Portfolio</title>
+        <meta name="description" content="Passionate FullStack Developer from SMK Negeri 7 Semarang. I turn ideas into digital solutions with clean code and modern technologies using React, Node.js, MongoDB, and more." />
+        <meta property="og:title" content="thakei.dev — FullStack Developer Portfolio" />
+        <meta property="og:description" content="Passionate FullStack Developer. I turn ideas into digital solutions with clean code and modern technologies." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://thakei.dev" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="thakei.dev — FullStack Developer Portfolio" />
+        <meta name="twitter:description" content="Passionate FullStack Developer. I turn ideas into digital solutions with clean code and modern technologies." />
+        <script type="application/ld+json">
+          {JSON.stringify(schemaData)}
+        </script>
+      </Helmet>
+
       <Navbar />
 
       {/* Hero Section - 2 Columns with Logo */}
@@ -190,13 +219,13 @@ function Home() {
         </div>
       </section>
 
-      {/* Bento Grid Section */}
-      <section className="max-w-6xl mx-auto px-6 py-24">
+      {/* Bento Grid Section - DIPERBESAR KE max-w-7xl */}
+      <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 grid-auto-rows-auto">
           
           {/* About Card - Tall */}
           <motion.div
-            className="md:col-span-1 lg:col-span-1 lg:row-span-2 rounded-2xl p-8 border transition-all duration-300 overflow-hidden relative flex flex-col"
+            className="md:col-span-1 lg:col-span-1 lg:row-span-2 rounded-2xl p-10 border transition-all duration-300 overflow-hidden relative flex flex-col"
             style={{
               backgroundColor: 'var(--color-bg-surface)',
               borderColor: 'var(--color-border-grid)'
@@ -219,13 +248,13 @@ function Home() {
             <div className="absolute inset-0 blueprint-grid opacity-20"></div>
             <div className="relative z-10 flex flex-col gap-4">
               <h2 
-                className="text-2xl font-bold transition-colors duration-300"
+                className="text-3xl font-bold transition-colors duration-300"
                 style={{ color: 'var(--color-accent-blue)' }}
               >
                 Who am I?
               </h2>
               <p 
-                className="text-sm leading-relaxed transition-colors duration-300 flex-1"
+                className="text-base leading-relaxed transition-colors duration-300 flex-1"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 Passionate FullStack developer from SMK Negeri 7 Semarang. Experienced with React, Node.js, and MongoDB. Building digital solutions with clean code and modern technologies.
@@ -240,9 +269,9 @@ function Home() {
             </div>
           </motion.div>
 
-          {/* Skills Card - Wide */}
+          {/* Skills Card - Wide - DIPERBESAR PADDING & FONT */}
           <motion.div
-            className="md:col-span-2 lg:col-span-2 lg:row-span-1 rounded-2xl p-6 border transition-all duration-300 overflow-hidden relative"
+            className="md:col-span-2 lg:col-span-2 lg:row-span-1 rounded-2xl p-8 border transition-all duration-300 overflow-hidden relative"
             style={{
               backgroundColor: 'var(--color-bg-surface)',
               borderColor: 'var(--color-border-grid)'
@@ -261,7 +290,7 @@ function Home() {
             <div className="absolute inset-0 blueprint-grid opacity-20"></div>
             <div className="relative z-10">
               <h3 
-                className="text-xl font-bold mb-6 transition-colors duration-300"
+                className="text-2xl font-bold mb-6 transition-colors duration-300"
                 style={{ color: 'var(--color-accent-blue)' }}
               >
                 Skills
@@ -276,7 +305,7 @@ function Home() {
                 {skills.map((skill, index) => (
                   <motion.div
                     key={index}
-                    className="flex flex-col items-center gap-2 p-2 rounded-lg border transition-all duration-300"
+                    className="flex flex-col items-center gap-2 p-3 rounded-lg border transition-all duration-300"
                     style={{
                       backgroundColor: 'var(--color-bg-base)',
                       borderColor: 'var(--color-border-grid)'
@@ -291,8 +320,8 @@ function Home() {
                   >
                     <img
                       src={skill.icon}
-                      alt={skill.name}
-                      className="w-8 h-8 object-contain"
+                      alt={`${skill.name} skill icon`}
+                      className="w-10 h-10 object-contain"
                     />
                     <span className="font-bold text-xs text-center leading-tight" style={{ color: 'var(--color-text-primary)' }}>
                       {skill.name}
@@ -329,7 +358,7 @@ function Home() {
               <div className="h-40 overflow-hidden flex-1">
                 <img
                   src={displayedCertificates[0].image}
-                  alt={displayedCertificates[0].name}
+                  alt={`${displayedCertificates[0].name} certificate`}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>
@@ -374,7 +403,7 @@ function Home() {
               <div className="h-40 overflow-hidden flex-1">
                 <img
                   src={displayedProjects[0].image}
-                  alt={displayedProjects[0].title}
+                  alt={`${displayedProjects[0].title} project`}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>

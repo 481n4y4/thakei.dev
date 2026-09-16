@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Helmet } from "react-helmet-async";
 import {
   faArrowLeft,
   faCode,
@@ -16,32 +17,38 @@ function ProjectDetail() {
 
   if (!project) {
     return (
-      <div 
-        className="text-white min-h-screen font-sans flex items-center justify-center px-4"
-      >
-        <div className="text-center max-w-md mx-auto">
-          <h2 
-            className="text-3xl font-bold mb-4 transition-colors duration-300"
-            style={{ color: 'var(--color-accent-blue)' }}
-          >
-            Project Not Found
-          </h2>
-          <p 
-            className="mb-6 transition-colors duration-300"
-            style={{ color: 'var(--color-text-secondary)' }}
-          >
-            The project you're looking for doesn't exist.
-          </p>
-          <Link
-            to="/#projects"
-            className="inline-flex items-center gap-2 px-6 py-3 text-white rounded-xl transition-all duration-300 transform hover:-translate-y-1"
-            style={{ backgroundColor: 'var(--color-accent-blue)' }}
-          >
-            <FontAwesomeIcon icon={faArrowLeft} />
-            Back to Projects
-          </Link>
+      <>
+        <Helmet>
+          <title>Project Not Found — thakei.dev</title>
+          <meta name="description" content="The project you are looking for does not exist." />
+        </Helmet>
+        <div 
+          className="text-white min-h-screen font-sans flex items-center justify-center px-4"
+        >
+          <div className="text-center max-w-md mx-auto">
+            <h2 
+              className="text-3xl font-bold mb-4 transition-colors duration-300"
+              style={{ color: 'var(--color-accent-blue)' }}
+            >
+              Project Not Found
+            </h2>
+            <p 
+              className="mb-6 transition-colors duration-300"
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
+              The project you're looking for doesn't exist.
+            </p>
+            <Link
+              to="/#projects"
+              className="inline-flex items-center gap-2 px-6 py-3 text-white rounded-xl transition-all duration-300 transform hover:-translate-y-1"
+              style={{ backgroundColor: 'var(--color-accent-blue)' }}
+            >
+              <FontAwesomeIcon icon={faArrowLeft} />
+              Back to Projects
+            </Link>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
@@ -55,9 +62,22 @@ function ProjectDetail() {
   };
 
   return (
-    <div 
-      className="text-white min-h-screen font-sans blueprint-grid"
-    >
+    <>
+      <Helmet>
+        <title>{project.title} — thakei.dev</title>
+        <meta name="description" content={`${project.description} - A FullStack development project showcasing ${project.techStack?.join(', ') || 'modern web technologies'}.`} />
+        <meta property="og:title" content={`${project.title} — thakei.dev`} />
+        <meta property="og:description" content={project.description} />
+        <meta property="og:image" content={project.image} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${project.title} — thakei.dev`} />
+        <meta name="twitter:description" content={project.description} />
+        <meta name="twitter:image" content={project.image} />
+      </Helmet>
+      <div 
+        className="text-white min-h-screen font-sans blueprint-grid"
+      >
       <header 
         className="fixed top-0 w-full backdrop-blur-md shadow-md z-50 border-b transition-all duration-300"
         style={{
@@ -163,7 +183,7 @@ function ProjectDetail() {
         >
           <img
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} - FullStack project overview`}
             className="w-full h-48 sm:h-64 md:h-80 lg:h-96 object-cover hover:scale-105 transition-transform duration-500"
           />
         </motion.div>
@@ -399,7 +419,8 @@ function ProjectDetail() {
           </motion.div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

@@ -1,5 +1,6 @@
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
+import { Helmet } from "react-helmet-async";
 import skills from "../data/skills";
 import khei from "../assets/img/khei.png";
 import Contact from "../component/Contact";
@@ -29,6 +30,16 @@ function About() {
 
   return (
     <main className="text-white font-sans blueprint-grid">
+      <Helmet>
+        <title>About — thakei.dev</title>
+        <meta name="description" content="About Abinaya, a passionate FullStack Developer from SMK Negeri 7 Semarang. Learn about my background, skills, and experience in web development." />
+        <meta property="og:title" content="About — thakei.dev" />
+        <meta property="og:description" content="About Abinaya, a passionate FullStack Developer from SMK Negeri 7 Semarang." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="About — thakei.dev" />
+        <meta name="twitter:description" content="About Abinaya, a passionate FullStack Developer from SMK Negeri 7 Semarang." />
+      </Helmet>
       <Navbar />
       
       {/* About Section */}
@@ -77,7 +88,7 @@ function About() {
               ></div>
               <img
                 src={khei}
-                alt="Kheira Abinaya"
+                alt="Kheira Abinaya Gavin Lovedila - FullStack Developer Profile Picture"
                 className="relative w-full max-w-md rounded-2xl object-cover"
                 loading="lazy"
               />
@@ -235,7 +246,7 @@ function About() {
               ></div>
               <img
                 src={cv}
-                alt="Kheira Abinaya CV"
+                alt="Kheira Abinaya CV - Resume Document"
                 className="relative w-full max-w-md rounded-2xl object-cover"
                 loading="lazy"
               />

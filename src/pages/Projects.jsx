@@ -1,6 +1,7 @@
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import Contact from "../component/Contact";
+import { Helmet } from "react-helmet-async";
 import projects from "../data/projectsData";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -30,6 +31,16 @@ function Projects() {
 
   return (
     <main className="text-white font-sans blueprint-grid">
+      <Helmet>
+        <title>Projects — thakei.dev</title>
+        <meta name="description" content="Explore my featured projects including MindFlow, WarungKula, Cineview, and more. See my FullStack development work with React, Node.js, and MongoDB." />
+        <meta property="og:title" content="Projects — thakei.dev" />
+        <meta property="og:description" content="My featured projects showcase FullStack development work with modern web technologies." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Projects — thakei.dev" />
+        <meta name="twitter:description" content="My featured projects showcase FullStack development work with modern web technologies." />
+      </Helmet>
       <Navbar />
       
       {/* Projects Section */}
@@ -92,7 +103,7 @@ function Projects() {
               <div className="h-48 overflow-hidden relative">
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - FullStack project`}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>

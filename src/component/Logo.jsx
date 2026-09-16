@@ -12,7 +12,7 @@ function Logo({ size = "medium" }) {
       fontFamily: "Cascadia Code, monospace"
     },
     large: {
-      fontSize: "text-6xl",
+      fontSize: "text-9xl",
       fontFamily: "Cascadia Code, monospace"
     }
   };

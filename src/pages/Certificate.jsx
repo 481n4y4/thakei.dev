@@ -4,6 +4,7 @@ import certificate from "../data/certificate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Contact from "../component/Contact";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 
 function Certificate() {
@@ -29,6 +30,16 @@ function Certificate() {
 
   return (
     <main className="text-white font-sans blueprint-grid">
+      <Helmet>
+        <title>Certificates — thakei.dev</title>
+        <meta name="description" content="View my professional certifications and achievements in web development, JavaScript, and other tech skills." />
+        <meta property="og:title" content="Certificates — thakei.dev" />
+        <meta property="og:description" content="My professional certifications and achievements in web development and tech skills." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Certificates — thakei.dev" />
+        <meta name="twitter:description" content="My professional certifications and achievements in web development and tech skills." />
+      </Helmet>
       <Navbar />
       
       {/* Certificate Section */}
@@ -91,7 +102,7 @@ function Certificate() {
               <div className="h-48 overflow-hidden relative">
                 <img
                   src={cert.image}
-                  alt={cert.name}
+                  alt={`${cert.name} - Professional certificate`}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>

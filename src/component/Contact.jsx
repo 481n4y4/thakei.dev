@@ -108,7 +108,6 @@ export default function Contact() {
         >
           <motion.div
             className="relative rounded-2xl overflow-hidden"
-            whileHover={{ scale: 1.02 }}
           >
             <div 
               className="absolute -inset-4 rounded-2xl blur opacity-30"
