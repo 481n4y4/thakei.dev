@@ -7,7 +7,7 @@ import About from "./pages/About"
 
 function App() {
   return (
-    <div className="grid-layer-global" style={{ minHeight: '100vh' }}>
+    <div style={{ minHeight: '100vh' }}>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

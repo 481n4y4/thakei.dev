@@ -29,7 +29,7 @@ function Projects() {
   };
 
   return (
-    <main className="text-white font-sans">
+    <main className="text-white font-sans blueprint-grid">
       <Navbar />
       
       {/* Projects Section */}
@@ -64,10 +64,10 @@ function Projects() {
 
         <motion.div 
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          variants={containerVariants}
+          transition={{ duration: 0.5 }}
         >
           {projects.map((project) => (
             <motion.div
@@ -93,7 +93,7 @@ function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>
 

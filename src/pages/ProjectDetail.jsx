@@ -56,7 +56,7 @@ function ProjectDetail() {
 
   return (
     <div 
-      className="text-white min-h-screen font-sans"
+      className="text-white min-h-screen font-sans blueprint-grid"
     >
       <header 
         className="fixed top-0 w-full backdrop-blur-md shadow-md z-50 border-b transition-all duration-300"
@@ -173,16 +173,9 @@ function ProjectDetail() {
           {/* Main Content - Left Column */}
           <motion.div 
             className="lg:w-2/3 space-y-6 sm:space-y-8"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              visible: {
-                transition: {
-                  staggerChildren: 0.1,
-                  delayChildren: 0.2,
-                },
-              },
-            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
             {/* Description */}
             <motion.section variants={itemVariants}>
@@ -252,16 +245,9 @@ function ProjectDetail() {
           {/* Sidebar - Right Column */}
           <motion.div 
             className="lg:w-1/3 space-y-6 sm:space-y-8"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              visible: {
-                transition: {
-                  staggerChildren: 0.1,
-                  delayChildren: 0.3,
-                },
-              },
-            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
             {/* Action Buttons */}
             <motion.div 

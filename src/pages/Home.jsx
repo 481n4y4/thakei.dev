@@ -48,7 +48,7 @@ function Home() {
   };
 
   return (
-    <main className="text-white min-h-screen font-sans">
+    <main className="text-white min-h-screen font-sans blueprint-grid">
       <Navbar />
 
       {/* Hero Section - 2 Columns with Logo */}
@@ -108,7 +108,9 @@ function Home() {
               {/* Tech Stack Pills */}
               <motion.div 
                 className="flex flex-wrap gap-3"
-                variants={containerVariants}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
               >
                 {[
                   "React",
@@ -125,7 +127,6 @@ function Home() {
                       borderColor: 'var(--color-accent-blue)',
                       color: 'var(--color-accent-blue)'
                     }}
-                    variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                   >
                     {tech}
@@ -191,7 +192,7 @@ function Home() {
 
       {/* Bento Grid Section */}
       <section className="max-w-6xl mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 grid-auto-rows-auto grid-auto-flow-dense">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 grid-auto-rows-auto">
           
           {/* About Card - Tall */}
           <motion.div
@@ -241,7 +242,7 @@ function Home() {
 
           {/* Skills Card - Wide */}
           <motion.div
-            className="md:col-span-2 lg:col-span-2 rounded-2xl p-6 border transition-all duration-300 overflow-hidden relative"
+            className="md:col-span-2 lg:col-span-2 lg:row-span-1 rounded-2xl p-6 border transition-all duration-300 overflow-hidden relative"
             style={{
               backgroundColor: 'var(--color-bg-surface)',
               borderColor: 'var(--color-border-grid)'
@@ -281,10 +282,6 @@ function Home() {
                       borderColor: 'var(--color-border-grid)'
                     }}
                     variants={itemVariants}
-                    whileHover={{
-                      scale: 1.08,
-                      y: -2
-                    }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.borderColor = 'var(--color-accent-blue)';
                     }}
@@ -333,7 +330,7 @@ function Home() {
                 <img
                   src={displayedCertificates[0].image}
                   alt={displayedCertificates[0].name}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>
               <div className="p-4">
@@ -378,7 +375,7 @@ function Home() {
                 <img
                   src={displayedProjects[0].image}
                   alt={displayedProjects[0].title}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>
               <div className="p-4">

@@ -17,8 +17,12 @@ function Navbar() {
     >
       <nav className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <Logo size="small" />
+        <Link to="/" className="flex items-center font-bold text-sm" style={{ fontFamily: "Cascadia Code, monospace" }}>
+          <span style={{ color: "var(--color-accent-blue)" }}>&lt;</span>
+          <span style={{ color: "var(--color-accent-red)" }}>thakei</span>
+          <span style={{ color: "var(--color-accent-blue)" }}>.dev</span>
+          <span style={{ color: "var(--color-accent-red)" }}>/</span>
+          <span style={{ color: "var(--color-accent-blue)" }}>&gt;</span>
         </Link>
 
         {/* Menu Desktop */}

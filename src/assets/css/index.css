@@ -26,13 +26,8 @@
   50% { opacity: 0; }
 }
 
-/* Global Blueprint Grid Layer - Fixed background covering entire viewport */
-.grid-layer-global::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -10;
-  pointer-events: none;
+/* Global Blueprint Grid Layer - Background ikut scroll */
+.blueprint-grid {
   background-color: var(--color-bg-base);
   background-image: 
     repeating-linear-gradient(
@@ -50,5 +45,31 @@
       transparent 50px
     );
   background-size: 50px 50px;
-  background-attachment: fixed;
+}
+
+/* Diagonal Stripes Left-Right Decorator */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  width: 56px;
+  height: 100vh;
+  z-index: -5;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(31, 41, 55, 0.4) 10px,
+    rgba(31, 41, 55, 0.4) 20px
+  );
+}
+
+body::before {
+  left: 0;
+}
+
+body::after {
+  right: 0;
 }

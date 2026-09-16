@@ -28,7 +28,7 @@ function About() {
   };
 
   return (
-    <main className="text-white font-sans">
+    <main className="text-white font-sans blueprint-grid">
       <Navbar />
       
       {/* About Section */}
