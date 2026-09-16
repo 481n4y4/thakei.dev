@@ -18,7 +18,6 @@ function ProjectDetail() {
     return (
       <div 
         className="text-white min-h-screen font-sans flex items-center justify-center px-4"
-        style={{ backgroundColor: 'var(--color-bg-base)' }}
       >
         <div className="text-center max-w-md mx-auto">
           <h2 
@@ -57,8 +56,7 @@ function ProjectDetail() {
 
   return (
     <div 
-      className="text-white min-h-screen font-sans blueprint-grid"
-      style={{ backgroundColor: 'var(--color-bg-base)' }}
+      className="text-white min-h-screen font-sans"
     >
       <header 
         className="fixed top-0 w-full backdrop-blur-md shadow-md z-50 border-b transition-all duration-300"

@@ -11,10 +11,10 @@ import skills from "../data/skills";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import Contact from "../component/Contact";
+import Logo from "../component/Logo";
 import { motion } from "framer-motion";
 
 function Home() {
-  // Ambil hanya 1 item untuk featured certificate dan project
   const displayedCertificates = certificate.slice(0, 1);
   const displayedProjects = projects.slice(0, 1);
 
@@ -48,159 +48,154 @@ function Home() {
   };
 
   return (
-    <main className="text-white min-h-screen font-sans blueprint-grid" style={{ backgroundColor: 'var(--color-bg-base)' }}>
+    <main className="text-white min-h-screen font-sans">
       <Navbar />
 
-      {/* Hero Section - Full Width with 2 columns */}
+      {/* Hero Section - 2 Columns with Logo */}
       <section
         id="hero"
-        className="relative text-white overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6"
-        style={{ backgroundColor: 'var(--color-bg-base)' }}
+        className="relative text-white overflow-hidden min-h-screen flex flex-col justify-center items-center px-6 pt-20"
       >
-        {/* Blueprint Code Background */}
-        <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
-          <div className="absolute top-10 left-5 text-blue-400/30 font-mono text-sm">
-            {`function Developer() {`}
-            <br />
-            {`  return "Hello World!";`}
-            <br />
-            {`}`}
-          </div>
-          <div className="absolute bottom-20 right-5 text-blue-300/30 font-mono text-sm">
-            {`<Code passion="true" />`}
-          </div>
-        </div>
-
-        <motion.div 
-          className="z-10 text-center max-w-4xl"
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-        >
-          {/* Main Heading with colored text */}
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-6 transition-colors duration-300"
-            style={{ color: 'var(--color-text-primary)' }}
-            variants={itemVariants}
-          >
-            <span style={{ color: 'var(--color-accent-red)' }}>thakei</span>
-            <span style={{ color: 'var(--color-accent-blue)' }}>.dev_</span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.div 
-            className="text-2xl md:text-3xl font-mono mb-6 h-12 transition-colors duration-300"
-            style={{ color: 'var(--color-accent-blue)' }}
-            variants={itemVariants}
-          >
-            Hi, I'm Abinaya
-          </motion.div>
-
-          {/* Description */}
-          <motion.div 
-            className="mt-6 p-6 rounded-xl max-w-2xl mx-auto border transition-all duration-300"
-            style={{
-              backgroundColor: 'var(--color-bg-surface)',
-              borderColor: 'var(--color-border-grid)'
-            }}
-            variants={itemVariants}
-            whileHover={{ scale: 1.02 }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'var(--color-accent-blue)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'var(--color-border-grid)';
-            }}
-          >
-            <p className="md:text-xl leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
-              I turn{" "}
-              <span className="font-semibold transition-colors duration-300" style={{ color: 'var(--color-accent-blue)' }}>ideas</span> into{" "}
-              <span className="font-semibold transition-colors duration-300" style={{ color: 'var(--color-accent-blue)' }}>
-                digital solutions
-              </span>{" "}
-              with clean code and modern technologies.
-            </p>
-
-            {/* Tech Stack */}
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Text Content */}
             <motion.div 
-              className="mt-4 flex flex-wrap gap-2 justify-center"
+              className="flex flex-col justify-start gap-6 z-10"
+              initial="hidden"
+              animate="visible"
               variants={containerVariants}
             >
-              {[
-                "React",
-                "Node.js",
-                "MongoDB",
-                "Tailwind",
-                "Express",
-              ].map((tech) => (
+              {/* Main Heading with colored text and blinking underscore */}
+              <motion.h1 
+                className="text-5xl md:text-6xl lg:text-7xl font-bold transition-colors duration-300 leading-tight"
+                style={{ color: 'var(--color-text-primary)' }}
+                variants={itemVariants}
+              >
+                <span style={{ color: 'var(--color-accent-red)' }}>thakei</span>
+                <span style={{ color: 'var(--color-accent-blue)' }}>.dev</span>
                 <motion.span
-                  key={tech}
-                  className="px-3 py-1 rounded-lg text-sm border transition-all duration-300"
+                  style={{ color: 'var(--color-text-primary)' }}
+                  animate={{ opacity: [1, 1, 0, 0] }}
+                  transition={{ duration: 1, repeat: Infinity }}
+                >
+                  _
+                </motion.span>
+              </motion.h1>
+
+              {/* Subtitle */}
+              <motion.h2 
+                className="text-2xl md:text-3xl font-semibold transition-colors duration-300"
+                style={{ color: 'var(--color-text-primary)' }}
+                variants={itemVariants}
+              >
+                Hi, I'm Abinaya
+              </motion.h2>
+
+              {/* Description */}
+              <motion.p
+                className="text-base md:text-lg leading-relaxed max-w-2xl"
+                style={{ color: 'var(--color-text-secondary)' }}
+                variants={itemVariants}
+              >
+                I turn{" "}
+                <span className="font-semibold" style={{ color: 'var(--color-accent-blue)' }}>ideas</span> into{" "}
+                <span className="font-semibold" style={{ color: 'var(--color-accent-blue)' }}>
+                  digital solutions
+                </span>{" "}
+                with clean code and modern technologies.
+              </motion.p>
+
+              {/* Tech Stack Pills */}
+              <motion.div 
+                className="flex flex-wrap gap-3"
+                variants={containerVariants}
+              >
+                {[
+                  "React",
+                  "Node.js",
+                  "MongoDB",
+                  "Tailwind",
+                  "Express",
+                ].map((tech) => (
+                  <motion.span
+                    key={tech}
+                    className="px-4 py-2 rounded-lg text-sm border transition-all duration-300"
+                    style={{
+                      backgroundColor: 'var(--color-bg-surface)',
+                      borderColor: 'var(--color-accent-blue)',
+                      color: 'var(--color-accent-blue)'
+                    }}
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </motion.div>
+
+              {/* CTA Buttons */}
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-4 pt-4"
+                variants={containerVariants}
+              >
+                <motion.a
+                  href="/projects"
+                  className="group px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold text-center"
                   style={{
-                    backgroundColor: 'var(--color-bg-base)',
+                    backgroundColor: 'var(--color-accent-blue)',
+                    color: 'var(--color-text-primary)'
+                  }}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05, y: -4 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FontAwesomeIcon icon={faCode} />
+                  View My Work
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
+                </motion.a>
+                <motion.a
+                  href="/about"
+                  className="px-8 py-4 rounded-xl transition-all duration-300 font-semibold border text-center"
+                  style={{
                     borderColor: 'var(--color-accent-blue)',
                     color: 'var(--color-accent-blue)'
                   }}
                   variants={itemVariants}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -4,
+                    backgroundColor: 'rgba(55, 138, 221, 0.1)'
+                  }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  {tech}
-                </motion.span>
-              ))}
+                  About Me
+                </motion.a>
+              </motion.div>
             </motion.div>
-          </motion.div>
 
-          {/* CTA Buttons */}
-          <motion.div 
-            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
-            variants={containerVariants}
-          >
-            <motion.a
-              href="/projects"
-              className="group px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold"
-              style={{
-                backgroundColor: 'var(--color-accent-blue)',
-                color: 'var(--color-text-primary)'
-              }}
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, y: -4 }}
-              whileTap={{ scale: 0.95 }}
+            {/* Right Column - Logo */}
+            <motion.div
+              className="hidden lg:flex justify-center items-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <FontAwesomeIcon icon={faCode} />
-              View My Work
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </motion.a>
-            <motion.a
-              href="/about"
-              className="px-8 py-4 rounded-xl transition-all duration-300 font-semibold border"
-              style={{
-                borderColor: 'var(--color-accent-blue)',
-                color: 'var(--color-accent-blue)'
-              }}
-              variants={itemVariants}
-              whileHover={{ 
-                scale: 1.05, 
-                y: -4,
-                backgroundColor: 'rgba(55, 138, 221, 0.1)'
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              About Me
-            </motion.a>
-          </motion.div>
-        </motion.div>
+              <Logo size="large" />
+            </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Bento Grid Section */}
-      <section className="max-w-6xl mx-auto px-6 py-24 rounded-2xl">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 grid-auto-rows-auto grid-auto-flow-dense">
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 grid-auto-rows-auto grid-auto-flow-dense">
           
-          {/* About Card */}
+          {/* About Card - Tall */}
           <motion.div
-            className="md:col-span-1 lg:col-span-1 rounded-2xl p-8 border transition-all duration-300 overflow-hidden relative"
+            className="md:col-span-1 lg:col-span-1 lg:row-span-2 rounded-2xl p-8 border transition-all duration-300 overflow-hidden relative flex flex-col"
             style={{
               backgroundColor: 'var(--color-bg-surface)',
               borderColor: 'var(--color-border-grid)'
@@ -229,14 +224,14 @@ function Home() {
                 Who am I?
               </h2>
               <p 
-                className="text-sm leading-relaxed transition-colors duration-300"
+                className="text-sm leading-relaxed transition-colors duration-300 flex-1"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                Passionate FullStack developer from SMK Negeri 7 Semarang. Experienced with React, Node.js, and MongoDB.
+                Passionate FullStack developer from SMK Negeri 7 Semarang. Experienced with React, Node.js, and MongoDB. Building digital solutions with clean code and modern technologies.
               </p>
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 font-semibold transition-all duration-300 w-fit"
+                className="inline-flex items-center gap-2 font-semibold transition-all duration-300 w-fit mt-auto pt-4"
                 style={{ color: 'var(--color-accent-blue)' }}
               >
                 Read More <FontAwesomeIcon icon={faArrowRight} />
@@ -244,7 +239,7 @@ function Home() {
             </div>
           </motion.div>
 
-          {/* Skills Card */}
+          {/* Skills Card - Wide */}
           <motion.div
             className="md:col-span-2 lg:col-span-2 rounded-2xl p-6 border transition-all duration-300 overflow-hidden relative"
             style={{
@@ -271,7 +266,7 @@ function Home() {
                 Skills
               </h3>
               <motion.div 
-                className="grid grid-cols-4 sm:grid-cols-5 gap-4"
+                className="grid grid-cols-5 sm:grid-cols-6 gap-4"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -314,7 +309,7 @@ function Home() {
           {/* Certificate Featured */}
           {displayedCertificates[0] && (
             <motion.div
-              className="md:col-span-1 lg:col-span-1 rounded-2xl overflow-hidden border transition-all duration-300 relative"
+              className="md:col-span-1 lg:col-span-1 rounded-2xl overflow-hidden border transition-all duration-300 relative flex flex-col"
               style={{
                 backgroundColor: 'var(--color-bg-surface)',
                 borderColor: 'var(--color-border-grid)'
@@ -334,7 +329,7 @@ function Home() {
                 e.currentTarget.style.borderColor = 'var(--color-border-grid)';
               }}
             >
-              <div className="h-40 overflow-hidden">
+              <div className="h-40 overflow-hidden flex-1">
                 <img
                   src={displayedCertificates[0].image}
                   alt={displayedCertificates[0].name}
@@ -359,7 +354,7 @@ function Home() {
           {/* Project Featured */}
           {displayedProjects[0] && (
             <motion.div
-              className="md:col-span-1 lg:col-span-1 rounded-2xl overflow-hidden border transition-all duration-300 relative"
+              className="md:col-span-1 lg:col-span-1 rounded-2xl overflow-hidden border transition-all duration-300 relative flex flex-col"
               style={{
                 backgroundColor: 'var(--color-bg-surface)',
                 borderColor: 'var(--color-border-grid)'
@@ -379,7 +374,7 @@ function Home() {
                 e.currentTarget.style.borderColor = 'var(--color-border-grid)';
               }}
             >
-              <div className="h-40 overflow-hidden">
+              <div className="h-40 overflow-hidden flex-1">
                 <img
                   src={displayedProjects[0].image}
                   alt={displayedProjects[0].title}

@@ -28,7 +28,7 @@ function Certificate() {
   };
 
   return (
-    <main className="text-white font-sans blueprint-grid" style={{ backgroundColor: 'var(--color-bg-base)' }}>
+    <main className="text-white font-sans">
       <Navbar />
       
       {/* Certificate Section */}

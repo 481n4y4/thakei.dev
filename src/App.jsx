@@ -7,15 +7,17 @@ import About from "./pages/About"
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/certificate" element={<Certificate />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:id" element={<ProjectDetail />} />
-      </Routes>
-    </Router>
+    <div className="grid-layer-global" style={{ minHeight: '100vh' }}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/certificate" element={<Certificate />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:id" element={<ProjectDetail />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
