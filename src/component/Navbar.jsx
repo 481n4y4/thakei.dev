@@ -7,29 +7,72 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 w-full bg-gray-950 z-50">
+    <header 
+      className="fixed top-0 w-full z-50 border-b transition-all duration-300"
+      style={{
+        backgroundColor: 'var(--color-bg-base)',
+        borderColor: 'var(--color-border-grid)'
+      }}
+    >
       <nav className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
-        <h1 className="text-2xl font-bold text-indigo-400">thakei.dev</h1>
+        <h1 
+          className="text-2xl font-bold transition-colors duration-300 hover:opacity-80"
+          style={{ color: 'var(--color-accent-blue)' }}
+        >
+          thakei.dev
+        </h1>
 
         {/* Menu Desktop */}
-        <ul className="hidden md:flex gap-8 text-sm">
+        <ul className="hidden md:flex gap-8 text-sm" style={{ color: 'var(--color-text-primary)' }}>
           <li>
-            <Link to={"/"} className="hover:text-indigo-400">
+            <Link 
+              to={"/"} 
+              className="transition-colors duration-300 hover:opacity-80"
+              style={{ 
+                color: 'var(--color-text-secondary)',
+              }}
+              onMouseEnter={(e) => e.target.style.color = 'var(--color-accent-blue)'}
+              onMouseLeave={(e) => e.target.style.color = 'var(--color-text-secondary)'}
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link to={"/about"} className="hover:text-indigo-400">
+            <Link 
+              to={"/about"} 
+              className="transition-colors duration-300 hover:opacity-80"
+              style={{ 
+                color: 'var(--color-text-secondary)',
+              }}
+              onMouseEnter={(e) => e.target.style.color = 'var(--color-accent-blue)'}
+              onMouseLeave={(e) => e.target.style.color = 'var(--color-text-secondary)'}
+            >
               About
             </Link>
           </li>
           <li>
-            <Link to={"/certificate"} className="hover:text-indigo-400">
+            <Link 
+              to={"/certificate"} 
+              className="transition-colors duration-300 hover:opacity-80"
+              style={{ 
+                color: 'var(--color-text-secondary)',
+              }}
+              onMouseEnter={(e) => e.target.style.color = 'var(--color-accent-blue)'}
+              onMouseLeave={(e) => e.target.style.color = 'var(--color-text-secondary)'}
+            >
               Certificate
             </Link>
           </li>
           <li>
-            <Link to={"/projects"} className="hover:text-indigo-400">
+            <Link 
+              to={"/projects"} 
+              className="transition-colors duration-300 hover:opacity-80"
+              style={{ 
+                color: 'var(--color-text-secondary)',
+              }}
+              onMouseEnter={(e) => e.target.style.color = 'var(--color-accent-blue)'}
+              onMouseLeave={(e) => e.target.style.color = 'var(--color-text-secondary)'}
+            >
               Projects
             </Link>
           </li>
@@ -37,7 +80,8 @@ function Navbar() {
 
         {/* Ikon Bars untuk Mobile */}
         <div
-          className="md:hidden text-2xl cursor-pointer"
+          className="md:hidden text-2xl cursor-pointer transition-colors duration-300"
+          style={{ color: 'var(--color-accent-blue)' }}
           onClick={() => setIsOpen(!isOpen)}
         >
           <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
@@ -46,24 +90,55 @@ function Navbar() {
 
       {/* Menu Mobile */}
       {isOpen && (
-        <ul className="md:hidden w-60 min-h-screen flex flex-col items-end gap-6  px-8 py-6 bg-gray-900/90 text-white absolute right-0">
+        <ul 
+          className="md:hidden w-60 min-h-screen flex flex-col items-end gap-6 px-8 py-6 absolute right-0 border-l"
+          style={{
+            backgroundColor: 'rgba(17, 19, 24, 0.95)',
+            borderColor: 'var(--color-border-grid)',
+            color: 'var(--color-text-primary)'
+          }}
+        >
           <li>
-            <Link to={"/"} className="hover:text-indigo-400">
+            <Link 
+              to={"/"} 
+              className="transition-colors duration-300 hover:opacity-80"
+              style={{ color: 'var(--color-text-secondary)' }}
+              onMouseEnter={(e) => e.target.style.color = 'var(--color-accent-blue)'}
+              onMouseLeave={(e) => e.target.style.color = 'var(--color-text-secondary)'}
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link to={"/about"} className="hover:text-indigo-400">
+            <Link 
+              to={"/about"} 
+              className="transition-colors duration-300 hover:opacity-80"
+              style={{ color: 'var(--color-text-secondary)' }}
+              onMouseEnter={(e) => e.target.style.color = 'var(--color-accent-blue)'}
+              onMouseLeave={(e) => e.target.style.color = 'var(--color-text-secondary)'}
+            >
               About
             </Link>
           </li>
           <li>
-            <Link to={"/certificate"} className="hover:text-indigo-400">
+            <Link 
+              to={"/certificate"} 
+              className="transition-colors duration-300 hover:opacity-80"
+              style={{ color: 'var(--color-text-secondary)' }}
+              onMouseEnter={(e) => e.target.style.color = 'var(--color-accent-blue)'}
+              onMouseLeave={(e) => e.target.style.color = 'var(--color-text-secondary)'}
+            >
               Certificate
             </Link>
           </li>
           <li>
-            <Link to={"/projects"} className="hover:text-indigo-400">
+            <Link 
+              to={"/projects"} 
+              className="transition-colors duration-300 hover:opacity-80"
+              style={{ color: 'var(--color-text-secondary)' }}
+              onMouseEnter={(e) => e.target.style.color = 'var(--color-accent-blue)'}
+              onMouseLeave={(e) => e.target.style.color = 'var(--color-text-secondary)'}
+            >
               Projects
             </Link>
           </li>

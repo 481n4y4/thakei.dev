@@ -1,10 +1,8 @@
 import { ReactTyped } from "react-typed";
-import khei from "../assets/img/khei.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
   faCode, 
   faArrowRight,
-  faEnvelope,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 import projects from "../data/projectsData";
@@ -13,53 +11,103 @@ import skills from "../data/skills";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import Contact from "../component/Contact";
+import { motion } from "framer-motion";
 
 function Home() {
   // Ambil hanya 3 item pertama untuk certificate dan projects
   const displayedCertificates = certificate.slice(0, 3);
   const displayedProjects = projects.slice(0, 3);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4 },
+    },
+  };
+
+  const slideInVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.5 },
+    },
+  };
+
   return (
-    <main className="bg-gray-900 text-white min-h-screen font-sans">
+    <main className="text-white min-h-screen font-sans" style={{ backgroundColor: 'var(--color-bg-base)' }}>
       <Navbar />
 
-      {/* Hero Section */}
+      {/* Hero Section - Full Width */}
       <section
         id="hero"
-        className="relative bg-gradient-to-t from-gray-900 via-purple-900 to-black text-white overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6"
+        className="relative text-white overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6 blueprint-grid"
+        style={{ backgroundColor: 'var(--color-bg-base)' }}
       >
-        {/* Simple Code Background */}
-        <div className="absolute inset-0 overflow-hidden opacity-10">
-          <div className="absolute top-10 left-5 text-purple-400 font-mono text-sm">
+        {/* Blueprint Code Background */}
+        <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
+          <div className="absolute top-10 left-5 text-blue-400/30 font-mono text-sm">
             {`function Developer() {`}
             <br />
             {`  return "Hello World!";`}
             <br />
             {`}`}
           </div>
-          <div className="absolute bottom-20 right-5 text-purple-300 font-mono text-sm">
+          <div className="absolute bottom-20 right-5 text-blue-300/30 font-mono text-sm">
             {`<Code passion="true" />`}
           </div>
         </div>
 
-        <div className="z-10 text-center max-w-4xl">
+        <motion.div 
+          className="z-10 text-center max-w-4xl"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
           {/* Terminal Badge */}
-          <div className="inline-flex items-center gap-2 bg-purple-800/50 border border-purple-500 rounded-full px-4 py-2 mb-6">
+          <motion.div 
+            className="inline-flex items-center gap-2 border rounded-full px-4 py-2 mb-6 transition-all duration-300"
+            style={{
+              backgroundColor: 'var(--color-bg-surface)',
+              borderColor: 'var(--color-accent-blue)'
+            }}
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+          >
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-            <span className="text-sm text-purple-200 font-mono">
+            <span className="text-sm font-mono transition-colors duration-300" style={{ color: 'var(--color-accent-blue)' }}>
               thakei.dev
             </span>
-          </div>
+          </motion.div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
-              Hi, I'm Abinaya
-            </span>
-          </h1>
+          <motion.h1 
+            className="text-5xl md:text-7xl font-bold mb-6 transition-colors duration-300"
+            style={{ color: 'var(--color-text-primary)' }}
+            variants={itemVariants}
+          >
+            Hi, I'm Abinaya
+          </motion.h1>
 
           {/* Typed Effect */}
-          <div className="text-2xl md:text-3xl text-purple-300 font-mono mb-6 h-12">
+          <motion.div 
+            className="text-2xl md:text-3xl font-mono mb-6 h-12 transition-colors duration-300"
+            style={{ color: 'var(--color-accent-blue)' }}
+            variants={itemVariants}
+          >
             <ReactTyped
               strings={[
                 "FullStack Developer",
@@ -72,21 +120,35 @@ function Home() {
               cursorChar="|"
               loop={true}
             />
-          </div>
+          </motion.div>
 
           {/* Description */}
-          <div className="mt-6 p-6 bg-purple-900/30 backdrop-blur-sm border border-purple-700/50 rounded-xl max-w-2xl mx-auto">
-            <p className="md:text-xl text-gray-300 leading-relaxed">
+          <motion.div 
+            className="mt-6 p-6 rounded-xl max-w-2xl mx-auto border transition-all duration-300"
+            style={{
+              backgroundColor: 'var(--color-bg-surface)',
+              borderColor: 'var(--color-border-grid)'
+            }}
+            variants={itemVariants}
+            whileHover={{
+              borderColor: 'var(--color-accent-blue)',
+              boxShadow: '0 0 15px rgba(55, 138, 221, 0.2)'
+            }}
+          >
+            <p className="md:text-xl leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
               I turn{" "}
-              <span className="text-purple-300 font-semibold">ideas</span> into{" "}
-              <span className="text-purple-300 font-semibold">
+              <span className="font-semibold transition-colors duration-300" style={{ color: 'var(--color-accent-blue)' }}>ideas</span> into{" "}
+              <span className="font-semibold transition-colors duration-300" style={{ color: 'var(--color-accent-blue)' }}>
                 digital solutions
               </span>{" "}
               with clean code and modern technologies.
             </p>
 
             {/* Tech Stack */}
-            <div className="mt-4 flex flex-wrap gap-2 justify-center">
+            <motion.div 
+              className="mt-4 flex flex-wrap gap-2 justify-center"
+              variants={containerVariants}
+            >
               {[
                 "React",
                 "Node.js",
@@ -94,21 +156,38 @@ function Home() {
                 "Tailwind",
                 "Express",
               ].map((tech) => (
-                <span
+                <motion.span
                   key={tech}
-                  className="px-3 py-1 bg-purple-800/50 rounded-lg text-sm text-purple-200 border border-purple-700"
+                  className="px-3 py-1 rounded-lg text-sm border transition-all duration-300"
+                  style={{
+                    backgroundColor: 'var(--color-bg-base)',
+                    borderColor: 'var(--color-accent-blue)',
+                    color: 'var(--color-accent-blue)'
+                  }}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05 }}
                 >
                   {tech}
-                </span>
+                </motion.span>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* CTA Buttons */}
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+          <motion.div 
+            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
+            variants={containerVariants}
+          >
+            <motion.a
               href="/projects"
-              className="group bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 font-semibold shadow-lg"
+              className="group px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold"
+              style={{
+                backgroundColor: 'var(--color-accent-blue)',
+                color: 'var(--color-text-primary)'
+              }}
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, y: -4 }}
+              whileTap={{ scale: 0.95 }}
             >
               <FontAwesomeIcon icon={faCode} />
               View My Work
@@ -116,241 +195,187 @@ function Home() {
                 icon={faArrowRight}
                 className="group-hover:translate-x-1 transition-transform"
               />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="/about"
-              className="border-2 border-purple-500 px-8 py-4 rounded-xl hover:bg-purple-500/10 transition-all duration-300 transform hover:-translate-y-1 font-semibold"
+              className="px-8 py-4 rounded-xl transition-all duration-300 font-semibold border"
+              style={{
+                borderColor: 'var(--color-accent-blue)',
+                color: 'var(--color-accent-blue)'
+              }}
+              variants={itemVariants}
+              whileHover={{ 
+                scale: 1.05, 
+                y: -4,
+                backgroundColor: 'rgba(55, 138, 221, 0.1)'
+              }}
+              whileTap={{ scale: 0.95 }}
             >
               About Me
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
+        </motion.div>
+      </section>
 
+      {/* Bento Grid Section */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 auto-rows-[300px]">
           
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="max-w-6xl mx-auto px-6 py-24">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
-            Who am I?
-          </h2>
-          <div className="w-20 h-1 bg-purple-500 mx-auto"></div>
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
-          <div className="lg:w-2/5">
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl blur opacity-25 "></div>
-              <img
-                src={khei}
-                alt="Kheira Abinaya"
-                className="relative w-full max-w-md rounded-2xl object-cover shadow-2xl"
-              />
-            </div>
-          </div>
-
-          <div className="lg:w-3/5 space-y-6">
-            <h3 className="text-2xl font-bold text-purple-300">
-              Kheira Abinaya Gavin Lovedila
-            </h3>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              I am a student at SMK Negeri 7 Semarang majoring in Network and
-              Application Information Systems with a strong interest in software
-              development and artificial intelligence. I am experienced in
-              developing web interfaces using HTML, CSS, Tailwind CSS,
-              JavaScript, and React.js, and am currently exploring backend
-              development with Express.js, MongoDB, and Laravel. Active in
-              organizations and team projects, I possess collaboration,
-              leadership, and project management skills to deliver functional
-              digital solutions.
-            </p>
-
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <a
-                href="https://drive.google.com/uc?export=download&id=1NpDRK_eSBVLpedeUc1dua2C6b-Bbrb2J"
-                className="group bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-4 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 font-semibold shadow-lg"
-              >
-                Download CV
-              </a>
-              <a
-                href="/about"
-                className="border-2 border-purple-500 px-8 py-4 rounded-xl hover:bg-purple-500/10 transition-all duration-300 transform hover:-translate-y-1 font-semibold flex items-center justify-center"
-              >
-                About Me
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section
-        id="skills"
-        className="max-w-6xl mx-auto px-6 py-24 bg-gray-800/50 rounded-3xl mx-6"
-      >
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
-            Skills
-          </h2>
-          <div className="w-20 h-1 bg-purple-500 mx-auto"></div>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-4">
-            I actively work with a range of technologies that support both
-            front-end and back-end development, including:
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {skills.map((skill, index) => (
-            <a
-              key={index}
-              className="group flex flex-col items-center gap-4 p-8 bg-gray-800 rounded-2xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl border border-gray-700 hover:border-purple-500"
-            >
-              <div className="p-4 bg-gray-900 rounded-2xl group-hover:bg-purple-900/20 transition-colors">
-                <img
-                  src={skill.icon}
-                  alt={skill.name}
-                  className="w-12 h-12 object-contain"
-                />
-              </div>
-              <h4 className="font-bold text-lg text-center group-hover:text-purple-300 transition-colors">
-                {skill.name}
-              </h4>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* Certificate */}
-      <section
-        id="certificate"
-        className="max-w-6xl mx-auto px-6 py-24 rounded-3xl mx-6"
-      >
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
-            Certificate
-          </h2>
-          <div className="w-20 h-1 bg-purple-500 mx-auto"></div>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-4">
-            I possess a strong foundation in web development, problem-solving,
-            and creative presentation. My skills include:
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {displayedCertificates.map((project) => (
-            <div
-              key={project.id}
-              className="group bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-700 hover:border-purple-500/50"
-            >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-                />
-                <div className=" bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </div>
-
-              <div className="p-6">
-                <h4 className="text-lg font-semibold mb-3 group-hover:text-purple-300 transition-colors line-clamp-2">
-                  {project.name}
-                </h4>
-                <a
-                  href={project.Link}
-                  target="_blank"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-purple-900 hover:bg-purple-800 cursor-pointer p-3 text-white transition-all font-semibold group/btn"
-                >
-                  View Certificate
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="group-hover/btn:translate-x-1 transition-transform"
-                  />
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* View All Certificates Button */}
-        <div className="text-center mt-12">
-          <Link
-            to="/certificate"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-purple-500 text-purple-300 rounded-xl hover:bg-purple-500/10 transition-all duration-300 transform hover:-translate-y-1 font-semibold"
+          {/* About Card - Large 2x2 */}
+          <motion.div
+            className="lg:col-span-2 lg:row-span-2 rounded-2xl p-8 border transition-all duration-300 overflow-hidden relative group"
+            style={{
+              backgroundColor: 'var(--color-bg-surface)',
+              borderColor: 'var(--color-border-grid)'
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={slideInVariants}
+            whileHover={{
+              borderColor: 'var(--color-accent-blue)',
+              boxShadow: '0 0 20px rgba(55, 138, 221, 0.2)'
+            }}
           >
-            View All Certificates
-            <FontAwesomeIcon
-              icon={faArrowRight}
-              className="group-hover:translate-x-1 transition-transform"
-            />
-          </Link>
-        </div>
-      </section>
+            <div className="absolute inset-0 blueprint-grid opacity-20"></div>
+            <div className="relative z-10 h-full flex flex-col">
+              <h2 
+                className="text-3xl font-bold mb-4 transition-colors duration-300"
+                style={{ color: 'var(--color-accent-blue)' }}
+              >
+                Who am i?
+              </h2>
+              <p 
+                className="text-sm leading-relaxed flex-1 transition-colors duration-300"
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                I am a student at SMK Negeri 7 Semarang with a passion for web development. Experienced in React, Node.js, and MongoDB. I build clean, responsive solutions with modern technologies.
+              </p>
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 mt-4 font-semibold transition-all duration-300"
+                style={{ color: 'var(--color-accent-blue)' }}
+              >
+                Read More <FontAwesomeIcon icon={faArrowRight} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </motion.div>
 
-      {/* Projects Section */}
-      <section
-        id="projects"
-        className="max-w-6xl mx-auto px-6 py-24 bg-gray-800/50 rounded-3xl mx-6"
-      >
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
-            Featured Projects
-          </h2>
-          <div className="w-20 h-1 bg-purple-500 mx-auto"></div>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-4">
-            A collection of my recent work and personal projects
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {displayedProjects.map((project) => (
-            <div
-              key={project.id}
-              className="group bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-700 hover:border-purple-500/50"
-            >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </div>
-
-              <div className="p-6">
-                <h4 className="text-xl font-semibold mb-3 group-hover:text-purple-300 transition-colors">
-                  {project.title}
-                </h4>
-                <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                  {project.description}
-                </p>
-                <Link
-                  to={`/projects/${project.id}`}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-purple-900 hover:bg-purple-800 cursor-pointer p-3 text-white transition-all font-semibold group/btn"
-                >
-                  Read More
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="group-hover/btn:translate-x-1 transition-transform"
+          {/* Skills Grid - 4 cards in 2x2 layout */}
+          <motion.div
+            className="lg:col-span-2 lg:row-span-2 grid grid-cols-2 gap-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
+            {skills.slice(0, 4).map((skill, index) => (
+              <motion.div
+                key={index}
+                className="rounded-xl p-4 border transition-all duration-300 flex flex-col items-center justify-center gap-2 group"
+                style={{
+                  backgroundColor: 'var(--color-bg-surface)',
+                  borderColor: 'var(--color-border-grid)'
+                }}
+                variants={itemVariants}
+                whileHover={{
+                  scale: 1.08,
+                  y: -4,
+                  borderColor: 'var(--color-accent-blue)',
+                  boxShadow: '0 0 15px rgba(55, 138, 221, 0.2)'
+                }}
+              >
+                <div className="p-2 rounded-lg transition-all duration-300" style={{ backgroundColor: 'var(--color-bg-base)' }}>
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="w-8 h-8 object-contain group-hover:scale-110 transition-transform"
                   />
+                </div>
+                <h4 className="font-bold text-xs text-center transition-colors duration-300" style={{ color: 'var(--color-text-primary)' }}>
+                  {skill.name}
+                </h4>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Certificate Featured - Wide card */}
+          {displayedCertificates[0] && (
+            <motion.div
+              className="lg:col-span-2 rounded-2xl overflow-hidden border transition-all duration-300 group relative"
+              style={{
+                backgroundColor: 'var(--color-bg-surface)',
+                borderColor: 'var(--color-border-grid)'
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={slideInVariants}
+              whileHover={{
+                borderColor: 'var(--color-accent-blue)',
+                boxShadow: '0 0 20px rgba(55, 138, 221, 0.2)'
+              }}
+            >
+              <div className="h-40 overflow-hidden">
+                <img
+                  src={displayedCertificates[0].image}
+                  alt={displayedCertificates[0].name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4">
+                <h4 className="font-semibold text-sm line-clamp-1 transition-colors duration-300" style={{ color: 'var(--color-text-primary)' }}>
+                  {displayedCertificates[0].name}
+                </h4>
+                <Link
+                  to="/certificate"
+                  className="inline-flex items-center gap-1 text-xs font-semibold mt-2 transition-all duration-300"
+                  style={{ color: 'var(--color-accent-blue)' }}
+                >
+                  View All <FontAwesomeIcon icon={faArrowRight} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
-            </div>
-          ))}
-        </div>
+            </motion.div>
+          )}
 
-        {/* View All Projects Button */}
-        <div className="text-center mt-12">
-          <Link
-            to="/projects"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-purple-500 text-purple-300 rounded-xl hover:bg-purple-500/10 transition-all duration-300 transform hover:-translate-y-1 font-semibold"
-          >
-            View All Projects
-            <FontAwesomeIcon
-              icon={faArrowRight}
-              className="group-hover:translate-x-1 transition-transform"
-            />
-          </Link>
+          {/* Project Featured - Wide card */}
+          {displayedProjects[0] && (
+            <motion.div
+              className="lg:col-span-2 rounded-2xl overflow-hidden border transition-all duration-300 group relative"
+              style={{
+                backgroundColor: 'var(--color-bg-surface)',
+                borderColor: 'var(--color-border-grid)'
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={slideInVariants}
+              whileHover={{
+                borderColor: 'var(--color-accent-blue)',
+                boxShadow: '0 0 20px rgba(55, 138, 221, 0.2)'
+              }}
+            >
+              <div className="h-40 overflow-hidden">
+                <img
+                  src={displayedProjects[0].image}
+                  alt={displayedProjects[0].title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4">
+                <h4 className="font-semibold text-sm line-clamp-1 transition-colors duration-300" style={{ color: 'var(--color-text-primary)' }}>
+                  {displayedProjects[0].title}
+                </h4>
+                <Link
+                  to="/projects"
+                  className="inline-flex items-center gap-1 text-xs font-semibold mt-2 transition-all duration-300"
+                  style={{ color: 'var(--color-accent-blue)' }}
+                >
+                  View All <FontAwesomeIcon icon={faArrowRight} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 
