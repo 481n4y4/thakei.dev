@@ -14,9 +14,9 @@ import Contact from "../component/Contact";
 import { motion } from "framer-motion";
 
 function Home() {
-  // Ambil hanya 3 item pertama untuk certificate dan projects
-  const displayedCertificates = certificate.slice(0, 3);
-  const displayedProjects = projects.slice(0, 3);
+  // Ambil hanya 1 item untuk featured certificate dan project
+  const displayedCertificates = certificate.slice(0, 1);
+  const displayedProjects = projects.slice(0, 1);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -48,13 +48,13 @@ function Home() {
   };
 
   return (
-    <main className="text-white min-h-screen font-sans" style={{ backgroundColor: 'var(--color-bg-base)' }}>
+    <main className="text-white min-h-screen font-sans blueprint-grid" style={{ backgroundColor: 'var(--color-bg-base)' }}>
       <Navbar />
 
-      {/* Hero Section - Full Width */}
+      {/* Hero Section - Full Width with 2 columns */}
       <section
         id="hero"
-        className="relative text-white overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6 blueprint-grid"
+        className="relative text-white overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6"
         style={{ backgroundColor: 'var(--color-bg-base)' }}
       >
         {/* Blueprint Code Background */}
@@ -77,49 +77,23 @@ function Home() {
           animate="visible"
           variants={containerVariants}
         >
-          {/* Terminal Badge */}
-          <motion.div 
-            className="inline-flex items-center gap-2 border rounded-full px-4 py-2 mb-6 transition-all duration-300"
-            style={{
-              backgroundColor: 'var(--color-bg-surface)',
-              borderColor: 'var(--color-accent-blue)'
-            }}
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-            <span className="text-sm font-mono transition-colors duration-300" style={{ color: 'var(--color-accent-blue)' }}>
-              thakei.dev
-            </span>
-          </motion.div>
-
-          {/* Main Heading */}
+          {/* Main Heading with colored text */}
           <motion.h1 
             className="text-5xl md:text-7xl font-bold mb-6 transition-colors duration-300"
             style={{ color: 'var(--color-text-primary)' }}
             variants={itemVariants}
           >
-            Hi, I'm Abinaya
+            <span style={{ color: 'var(--color-accent-red)' }}>thakei</span>
+            <span style={{ color: 'var(--color-accent-blue)' }}>.dev_</span>
           </motion.h1>
 
-          {/* Typed Effect */}
+          {/* Subtitle */}
           <motion.div 
             className="text-2xl md:text-3xl font-mono mb-6 h-12 transition-colors duration-300"
             style={{ color: 'var(--color-accent-blue)' }}
             variants={itemVariants}
           >
-            <ReactTyped
-              strings={[
-                "FullStack Developer",
-                "Creative Coder",
-                "Tech Enthusiast"
-              ]}
-              typeSpeed={70}
-              backSpeed={40}
-              showCursor={true}
-              cursorChar="|"
-              loop={true}
-            />
+            Hi, I'm Abinaya
           </motion.div>
 
           {/* Description */}
@@ -130,9 +104,12 @@ function Home() {
               borderColor: 'var(--color-border-grid)'
             }}
             variants={itemVariants}
-            whileHover={{
-              borderColor: 'var(--color-accent-blue)',
-              boxShadow: '0 0 15px rgba(55, 138, 221, 0.2)'
+            whileHover={{ scale: 1.02 }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'var(--color-accent-blue)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'var(--color-border-grid)';
             }}
           >
             <p className="md:text-xl leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
@@ -218,12 +195,12 @@ function Home() {
       </section>
 
       {/* Bento Grid Section */}
-      <section className="max-w-6xl mx-auto px-6 py-24 blueprint-grid rounded-2xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 grid-auto-rows-auto">
+      <section className="max-w-6xl mx-auto px-6 py-24 rounded-2xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 grid-auto-rows-auto grid-auto-flow-dense">
           
-          {/* About Card - Medium size (left column) */}
+          {/* About Card */}
           <motion.div
-            className="md:col-span-1 rounded-2xl p-8 border transition-all duration-300 overflow-hidden relative"
+            className="md:col-span-1 lg:col-span-1 rounded-2xl p-8 border transition-all duration-300 overflow-hidden relative"
             style={{
               backgroundColor: 'var(--color-bg-surface)',
               borderColor: 'var(--color-border-grid)'
@@ -267,9 +244,9 @@ function Home() {
             </div>
           </motion.div>
 
-          {/* Skills Card - Medium size with all skills grid (3 columns on lg) */}
+          {/* Skills Card */}
           <motion.div
-            className="md:col-span-1 lg:col-span-2 rounded-2xl p-6 border transition-all duration-300 overflow-hidden relative"
+            className="md:col-span-2 lg:col-span-2 rounded-2xl p-6 border transition-all duration-300 overflow-hidden relative"
             style={{
               backgroundColor: 'var(--color-bg-surface)',
               borderColor: 'var(--color-border-grid)'
@@ -294,7 +271,7 @@ function Home() {
                 Skills
               </h3>
               <motion.div 
-                className="grid grid-cols-3 sm:grid-cols-4 gap-4"
+                className="grid grid-cols-4 sm:grid-cols-5 gap-4"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -303,7 +280,7 @@ function Home() {
                 {skills.map((skill, index) => (
                   <motion.div
                     key={index}
-                    className="flex flex-col items-center gap-2 p-3 rounded-lg border transition-all duration-300"
+                    className="flex flex-col items-center gap-2 p-2 rounded-lg border transition-all duration-300"
                     style={{
                       backgroundColor: 'var(--color-bg-base)',
                       borderColor: 'var(--color-border-grid)'
@@ -323,7 +300,7 @@ function Home() {
                     <img
                       src={skill.icon}
                       alt={skill.name}
-                      className="w-10 h-10 object-contain"
+                      className="w-8 h-8 object-contain"
                     />
                     <span className="font-bold text-xs text-center leading-tight" style={{ color: 'var(--color-text-primary)' }}>
                       {skill.name}
@@ -334,10 +311,10 @@ function Home() {
             </div>
           </motion.div>
 
-          {/* Certificate Featured - Medium card (right side) */}
+          {/* Certificate Featured */}
           {displayedCertificates[0] && (
             <motion.div
-              className="md:col-span-1 rounded-2xl overflow-hidden border transition-all duration-300 relative"
+              className="md:col-span-1 lg:col-span-1 rounded-2xl overflow-hidden border transition-all duration-300 relative"
               style={{
                 backgroundColor: 'var(--color-bg-surface)',
                 borderColor: 'var(--color-border-grid)'
@@ -379,10 +356,10 @@ function Home() {
             </motion.div>
           )}
 
-          {/* Project Featured - Medium card (full width on md, col-span-1 on lg) */}
+          {/* Project Featured */}
           {displayedProjects[0] && (
             <motion.div
-              className="md:col-span-2 lg:col-span-1 rounded-2xl overflow-hidden border transition-all duration-300 relative"
+              className="md:col-span-1 lg:col-span-1 rounded-2xl overflow-hidden border transition-all duration-300 relative"
               style={{
                 backgroundColor: 'var(--color-bg-surface)',
                 borderColor: 'var(--color-border-grid)'

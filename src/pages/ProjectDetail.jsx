@@ -57,7 +57,7 @@ function ProjectDetail() {
 
   return (
     <div 
-      className="text-white min-h-screen font-sans"
+      className="text-white min-h-screen font-sans blueprint-grid"
       style={{ backgroundColor: 'var(--color-bg-base)' }}
     >
       <header 
@@ -99,7 +99,7 @@ function ProjectDetail() {
         </nav>
       </header>
       
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12 lg:pb-16 pt-16 sm:pt-20 lg:pt-24 blueprint-grid rounded-2xl">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12 lg:pb-16 pt-16 sm:pt-20 lg:pt-24 rounded-2xl">
         {/* Project Header */}
         <motion.div 
           className="mb-6 sm:mb-8 lg:mb-10"

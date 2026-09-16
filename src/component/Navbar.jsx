@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import Logo from "./Logo";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,12 +16,10 @@ function Navbar() {
       }}
     >
       <nav className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
-        <h1 
-          className="text-2xl font-bold transition-colors duration-300 hover:opacity-80"
-          style={{ color: 'var(--color-accent-blue)' }}
-        >
-          thakei.dev
-        </h1>
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2">
+          <Logo size="small" />
+        </Link>
 
         {/* Menu Desktop */}
         <ul className="hidden md:flex gap-8 text-sm" style={{ color: 'var(--color-text-primary)' }}>

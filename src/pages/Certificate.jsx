@@ -28,13 +28,13 @@ function Certificate() {
   };
 
   return (
-    <main className="text-white font-sans" style={{ backgroundColor: 'var(--color-bg-base)' }}>
+    <main className="text-white font-sans blueprint-grid" style={{ backgroundColor: 'var(--color-bg-base)' }}>
       <Navbar />
       
       {/* Certificate Section */}
       <section
         id="certificate"
-        className="max-w-6xl mx-auto px-6 py-24 blueprint-grid rounded-2xl"
+        className="max-w-6xl mx-auto px-6 py-24 rounded-2xl"
       >
         <motion.div 
           className="text-center mb-16"

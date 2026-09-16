@@ -28,11 +28,11 @@ function About() {
   };
 
   return (
-    <main className="text-white font-sans" style={{ backgroundColor: 'var(--color-bg-base)' }}>
+    <main className="text-white font-sans blueprint-grid" style={{ backgroundColor: 'var(--color-bg-base)' }}>
       <Navbar />
       
       {/* About Section */}
-      <section id="about" className="max-w-6xl mx-auto px-6 py-24 blueprint-grid rounded-2xl">
+      <section id="about" className="max-w-6xl mx-auto px-6 py-24 rounded-2xl">
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -118,7 +118,7 @@ function About() {
       {/* Skills Section */}
       <section
         id="skills"
-        className="max-w-6xl mx-auto px-6 py-24 rounded-3xl blueprint-grid"
+        className="max-w-6xl mx-auto px-6 py-24 rounded-3xl"
       >
         <motion.div 
           className="text-center mb-16"
@@ -190,7 +190,7 @@ function About() {
       </section>
 
       {/* Resume Section */}
-      <section id="resume" className="max-w-6xl mx-auto px-6 py-24 blueprint-grid rounded-2xl">
+      <section id="resume" className="max-w-6xl mx-auto px-6 py-24 rounded-2xl">
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
