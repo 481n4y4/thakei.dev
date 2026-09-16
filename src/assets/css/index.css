@@ -26,28 +26,46 @@
   50% { opacity: 0; }
 }
 
-/* Blueprint Grid Background Pattern */
+/* Blueprint Grid Background Pattern - Linear gradient garis grid */
 .blueprint-grid {
   position: relative;
   background-color: var(--color-bg-base);
   background-image: 
-    radial-gradient(circle, rgba(31, 41, 55, 0.15) 1px, transparent 1px);
-  background-size: 20px 20px;
-  background-position: 0 0;
+    repeating-linear-gradient(
+      0deg,
+      rgba(31, 41, 55, 0.15) 0px,
+      rgba(31, 41, 55, 0.15) 1px,
+      transparent 1px,
+      transparent 50px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(31, 41, 55, 0.15) 0px,
+      rgba(31, 41, 55, 0.15) 1px,
+      transparent 1px,
+      transparent 50px
+    );
+  background-size: 50px 50px;
 }
 
 /* Blueprint Grid Container */
 .grid-container {
   position: relative;
   background-color: var(--color-bg-base);
-}
-
-.grid-container::before {
-  content: '';
-  position: absolute;
-  inset: 0;
   background-image: 
-    radial-gradient(circle, rgba(31, 41, 55, 0.15) 1px, transparent 1px);
-  background-size: 20px 20px;
-  pointer-events: none;
+    repeating-linear-gradient(
+      0deg,
+      rgba(31, 41, 55, 0.15) 0px,
+      rgba(31, 41, 55, 0.15) 1px,
+      transparent 1px,
+      transparent 50px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(31, 41, 55, 0.15) 0px,
+      rgba(31, 41, 55, 0.15) 1px,
+      transparent 1px,
+      transparent 50px
+    );
+  background-size: 50px 50px;
 }

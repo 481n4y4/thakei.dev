@@ -34,7 +34,7 @@ function Certificate() {
       {/* Certificate Section */}
       <section
         id="certificate"
-        className="max-w-6xl mx-auto px-6 py-24"
+        className="max-w-6xl mx-auto px-6 py-24 blueprint-grid rounded-2xl"
       >
         <motion.div 
           className="text-center mb-16"
@@ -71,7 +71,7 @@ function Certificate() {
           {certificate.map((cert) => (
             <motion.div
               key={cert.id}
-              className="group rounded-2xl overflow-hidden border transition-all duration-500"
+              className="group rounded-2xl overflow-hidden border transition-all duration-300"
               style={{
                 backgroundColor: 'var(--color-bg-surface)',
                 borderColor: 'var(--color-border-grid)'
@@ -79,9 +79,13 @@ function Certificate() {
               variants={itemVariants}
               whileHover={{
                 scale: 1.05,
-                y: -8,
-                borderColor: 'var(--color-accent-blue)',
-                boxShadow: '0 10px 30px rgba(55, 138, 221, 0.2)'
+                y: -8
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'var(--color-accent-blue)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'var(--color-border-grid)';
               }}
             >
               <div className="h-48 overflow-hidden relative">

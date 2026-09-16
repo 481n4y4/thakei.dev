@@ -156,13 +156,17 @@ function Footer() {
                   }}
                   whileHover={{ 
                     scale: 1.1, 
-                    y: -4,
-                    borderColor: 'var(--color-accent-blue)',
-                    boxShadow: '0 0 10px rgba(55, 138, 221, 0.3)'
+                    y: -4
                   }}
                   variants={itemVariants}
                   aria-label={social.label}
                   title={social.label}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--color-accent-blue)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--color-border-grid)';
+                  }}
                 >
                   <FontAwesomeIcon
                     icon={social.icon}

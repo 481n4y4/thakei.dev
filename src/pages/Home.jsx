@@ -218,12 +218,12 @@ function Home() {
       </section>
 
       {/* Bento Grid Section */}
-      <section className="max-w-6xl mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 auto-rows-[300px]">
+      <section className="max-w-6xl mx-auto px-6 py-24 blueprint-grid rounded-2xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 grid-auto-rows-auto">
           
-          {/* About Card - Large 2x2 */}
+          {/* About Card - Medium size (left column) */}
           <motion.div
-            className="lg:col-span-2 lg:row-span-2 rounded-2xl p-8 border transition-all duration-300 overflow-hidden relative group"
+            className="md:col-span-1 rounded-2xl p-8 border transition-all duration-300 overflow-hidden relative"
             style={{
               backgroundColor: 'var(--color-bg-surface)',
               borderColor: 'var(--color-border-grid)'
@@ -233,76 +233,111 @@ function Home() {
             viewport={{ once: true }}
             variants={slideInVariants}
             whileHover={{
-              borderColor: 'var(--color-accent-blue)',
-              boxShadow: '0 0 20px rgba(55, 138, 221, 0.2)'
+              scale: 1.02,
+              y: -4
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'var(--color-accent-blue)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'var(--color-border-grid)';
             }}
           >
             <div className="absolute inset-0 blueprint-grid opacity-20"></div>
-            <div className="relative z-10 h-full flex flex-col">
+            <div className="relative z-10 flex flex-col gap-4">
               <h2 
-                className="text-3xl font-bold mb-4 transition-colors duration-300"
+                className="text-2xl font-bold transition-colors duration-300"
                 style={{ color: 'var(--color-accent-blue)' }}
               >
-                Who am i?
+                Who am I?
               </h2>
               <p 
-                className="text-sm leading-relaxed flex-1 transition-colors duration-300"
+                className="text-sm leading-relaxed transition-colors duration-300"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                I am a student at SMK Negeri 7 Semarang with a passion for web development. Experienced in React, Node.js, and MongoDB. I build clean, responsive solutions with modern technologies.
+                Passionate FullStack developer from SMK Negeri 7 Semarang. Experienced with React, Node.js, and MongoDB.
               </p>
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 mt-4 font-semibold transition-all duration-300"
+                className="inline-flex items-center gap-2 font-semibold transition-all duration-300 w-fit"
                 style={{ color: 'var(--color-accent-blue)' }}
               >
-                Read More <FontAwesomeIcon icon={faArrowRight} className="group-hover:translate-x-1 transition-transform" />
+                Read More <FontAwesomeIcon icon={faArrowRight} />
               </Link>
             </div>
           </motion.div>
 
-          {/* Skills Grid - 4 cards in 2x2 layout */}
+          {/* Skills Card - Medium size with all skills grid (3 columns on lg) */}
           <motion.div
-            className="lg:col-span-2 lg:row-span-2 grid grid-cols-2 gap-4"
+            className="md:col-span-1 lg:col-span-2 rounded-2xl p-6 border transition-all duration-300 overflow-hidden relative"
+            style={{
+              backgroundColor: 'var(--color-bg-surface)',
+              borderColor: 'var(--color-border-grid)'
+            }}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={containerVariants}
+            variants={slideInVariants}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'var(--color-accent-blue)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'var(--color-border-grid)';
+            }}
           >
-            {skills.slice(0, 4).map((skill, index) => (
-              <motion.div
-                key={index}
-                className="rounded-xl p-4 border transition-all duration-300 flex flex-col items-center justify-center gap-2 group"
-                style={{
-                  backgroundColor: 'var(--color-bg-surface)',
-                  borderColor: 'var(--color-border-grid)'
-                }}
-                variants={itemVariants}
-                whileHover={{
-                  scale: 1.08,
-                  y: -4,
-                  borderColor: 'var(--color-accent-blue)',
-                  boxShadow: '0 0 15px rgba(55, 138, 221, 0.2)'
-                }}
+            <div className="absolute inset-0 blueprint-grid opacity-20"></div>
+            <div className="relative z-10">
+              <h3 
+                className="text-xl font-bold mb-6 transition-colors duration-300"
+                style={{ color: 'var(--color-accent-blue)' }}
               >
-                <div className="p-2 rounded-lg transition-all duration-300" style={{ backgroundColor: 'var(--color-bg-base)' }}>
-                  <img
-                    src={skill.icon}
-                    alt={skill.name}
-                    className="w-8 h-8 object-contain group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <h4 className="font-bold text-xs text-center transition-colors duration-300" style={{ color: 'var(--color-text-primary)' }}>
-                  {skill.name}
-                </h4>
+                Skills
+              </h3>
+              <motion.div 
+                className="grid grid-cols-3 sm:grid-cols-4 gap-4"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={containerVariants}
+              >
+                {skills.map((skill, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex flex-col items-center gap-2 p-3 rounded-lg border transition-all duration-300"
+                    style={{
+                      backgroundColor: 'var(--color-bg-base)',
+                      borderColor: 'var(--color-border-grid)'
+                    }}
+                    variants={itemVariants}
+                    whileHover={{
+                      scale: 1.08,
+                      y: -2
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--color-accent-blue)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--color-border-grid)';
+                    }}
+                  >
+                    <img
+                      src={skill.icon}
+                      alt={skill.name}
+                      className="w-10 h-10 object-contain"
+                    />
+                    <span className="font-bold text-xs text-center leading-tight" style={{ color: 'var(--color-text-primary)' }}>
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
               </motion.div>
-            ))}
+            </div>
           </motion.div>
 
-          {/* Certificate Featured - Wide card */}
+          {/* Certificate Featured - Medium card (right side) */}
           {displayedCertificates[0] && (
             <motion.div
-              className="lg:col-span-2 rounded-2xl overflow-hidden border transition-all duration-300 group relative"
+              className="md:col-span-1 rounded-2xl overflow-hidden border transition-all duration-300 relative"
               style={{
                 backgroundColor: 'var(--color-bg-surface)',
                 borderColor: 'var(--color-border-grid)'
@@ -312,36 +347,42 @@ function Home() {
               viewport={{ once: true }}
               variants={slideInVariants}
               whileHover={{
-                borderColor: 'var(--color-accent-blue)',
-                boxShadow: '0 0 20px rgba(55, 138, 221, 0.2)'
+                scale: 1.02,
+                y: -4
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'var(--color-accent-blue)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'var(--color-border-grid)';
               }}
             >
               <div className="h-40 overflow-hidden">
                 <img
                   src={displayedCertificates[0].image}
                   alt={displayedCertificates[0].name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="p-4">
-                <h4 className="font-semibold text-sm line-clamp-1 transition-colors duration-300" style={{ color: 'var(--color-text-primary)' }}>
+                <h4 className="font-semibold text-sm line-clamp-2 transition-colors duration-300" style={{ color: 'var(--color-text-primary)' }}>
                   {displayedCertificates[0].name}
                 </h4>
                 <Link
                   to="/certificate"
-                  className="inline-flex items-center gap-1 text-xs font-semibold mt-2 transition-all duration-300"
+                  className="inline-flex items-center gap-1 text-xs font-semibold mt-3 transition-all duration-300"
                   style={{ color: 'var(--color-accent-blue)' }}
                 >
-                  View All <FontAwesomeIcon icon={faArrowRight} className="group-hover:translate-x-1 transition-transform" />
+                  View All <FontAwesomeIcon icon={faArrowRight} />
                 </Link>
               </div>
             </motion.div>
           )}
 
-          {/* Project Featured - Wide card */}
+          {/* Project Featured - Medium card (full width on md, col-span-1 on lg) */}
           {displayedProjects[0] && (
             <motion.div
-              className="lg:col-span-2 rounded-2xl overflow-hidden border transition-all duration-300 group relative"
+              className="md:col-span-2 lg:col-span-1 rounded-2xl overflow-hidden border transition-all duration-300 relative"
               style={{
                 backgroundColor: 'var(--color-bg-surface)',
                 borderColor: 'var(--color-border-grid)'
@@ -351,27 +392,33 @@ function Home() {
               viewport={{ once: true }}
               variants={slideInVariants}
               whileHover={{
-                borderColor: 'var(--color-accent-blue)',
-                boxShadow: '0 0 20px rgba(55, 138, 221, 0.2)'
+                scale: 1.02,
+                y: -4
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'var(--color-accent-blue)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'var(--color-border-grid)';
               }}
             >
               <div className="h-40 overflow-hidden">
                 <img
                   src={displayedProjects[0].image}
                   alt={displayedProjects[0].title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="p-4">
-                <h4 className="font-semibold text-sm line-clamp-1 transition-colors duration-300" style={{ color: 'var(--color-text-primary)' }}>
+                <h4 className="font-semibold text-sm line-clamp-2 transition-colors duration-300" style={{ color: 'var(--color-text-primary)' }}>
                   {displayedProjects[0].title}
                 </h4>
                 <Link
                   to="/projects"
-                  className="inline-flex items-center gap-1 text-xs font-semibold mt-2 transition-all duration-300"
+                  className="inline-flex items-center gap-1 text-xs font-semibold mt-3 transition-all duration-300"
                   style={{ color: 'var(--color-accent-blue)' }}
                 >
-                  View All <FontAwesomeIcon icon={faArrowRight} className="group-hover:translate-x-1 transition-transform" />
+                  View All <FontAwesomeIcon icon={faArrowRight} />
                 </Link>
               </div>
             </motion.div>

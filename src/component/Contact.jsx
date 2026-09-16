@@ -109,7 +109,6 @@ export default function Contact() {
           <motion.div
             className="relative rounded-2xl overflow-hidden"
             whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
           >
             <div 
               className="absolute -inset-4 rounded-2xl blur opacity-30"
@@ -121,7 +120,7 @@ export default function Contact() {
             <img
               src={contact}
               alt="Contact illustration"
-              className="relative rounded-2xl shadow-2xl"
+              className="relative rounded-2xl"
               loading="lazy"
             />
           </motion.div>
@@ -148,7 +147,7 @@ export default function Contact() {
                   type="text"
                   name="name"
                   placeholder="Your Name"
-                  className="w-full rounded-xl p-4 focus:outline-none transition-all duration-300"
+                  className="w-full rounded-xl p-4 focus:outline-none transition-colors duration-300"
                   style={{
                     backgroundColor: 'var(--color-bg-surface)',
                     color: 'var(--color-text-primary)',
@@ -157,11 +156,9 @@ export default function Contact() {
                   }}
                   onFocus={(e) => {
                     e.target.style.borderColor = 'var(--color-accent-blue)';
-                    e.target.style.boxShadow = '0 0 10px rgba(55, 138, 221, 0.2)';
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = 'var(--color-border-grid)';
-                    e.target.style.boxShadow = 'none';
                   }}
                   required
                 />
@@ -171,7 +168,7 @@ export default function Contact() {
                   type="email"
                   name="email"
                   placeholder="Your Email"
-                  className="w-full rounded-xl p-4 focus:outline-none transition-all duration-300"
+                  className="w-full rounded-xl p-4 focus:outline-none transition-colors duration-300"
                   style={{
                     backgroundColor: 'var(--color-bg-surface)',
                     color: 'var(--color-text-primary)',
@@ -180,11 +177,9 @@ export default function Contact() {
                   }}
                   onFocus={(e) => {
                     e.target.style.borderColor = 'var(--color-accent-blue)';
-                    e.target.style.boxShadow = '0 0 10px rgba(55, 138, 221, 0.2)';
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = 'var(--color-border-grid)';
-                    e.target.style.boxShadow = 'none';
                   }}
                   required
                 />
@@ -196,7 +191,7 @@ export default function Contact() {
                 name="message"
                 placeholder="Your Message"
                 rows="6"
-                className="w-full rounded-xl p-4 focus:outline-none transition-all duration-300 resize-none"
+                className="w-full rounded-xl p-4 focus:outline-none transition-colors duration-300 resize-none"
                 style={{
                   backgroundColor: 'var(--color-bg-surface)',
                   color: 'var(--color-text-primary)',
@@ -205,11 +200,9 @@ export default function Contact() {
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = 'var(--color-accent-blue)';
-                  e.target.style.boxShadow = '0 0 10px rgba(55, 138, 221, 0.2)';
                 }}
                 onBlur={(e) => {
                   e.target.style.borderColor = 'var(--color-border-grid)';
-                  e.target.style.boxShadow = 'none';
                 }}
                 required
               ></textarea>
@@ -217,15 +210,12 @@ export default function Contact() {
 
             <motion.button
               type="submit"
-              className="w-full font-semibold py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 shadow-lg"
+              className="w-full font-semibold py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center gap-3"
               style={{
                 backgroundColor: 'var(--color-accent-blue)',
                 color: 'var(--color-text-primary)'
               }}
-              whileHover={{ 
-                scale: 1.02,
-                boxShadow: '0 0 20px rgba(55, 138, 221, 0.4)'
-              }}
+              whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
               variants={itemVariants}
             >
@@ -258,14 +248,15 @@ export default function Contact() {
                     borderColor: 'var(--color-border-grid)',
                     color: 'var(--color-accent-blue)'
                   }}
-                  whileHover={{ 
-                    scale: 1.08, 
-                    y: -4,
-                    borderColor: 'var(--color-accent-blue)',
-                    boxShadow: '0 0 15px rgba(55, 138, 221, 0.3)'
-                  }}
+                  whileHover={{ scale: 1.08, y: -4 }}
                   variants={itemVariants}
                   aria-label={social.label}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--color-accent-blue)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--color-border-grid)';
+                  }}
                 >
                   <FontAwesomeIcon
                     icon={social.icon}

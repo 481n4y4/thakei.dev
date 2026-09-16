@@ -99,7 +99,7 @@ function ProjectDetail() {
         </nav>
       </header>
       
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12 lg:pb-16 pt-16 sm:pt-20 lg:pt-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12 lg:pb-16 pt-16 sm:pt-20 lg:pt-24 blueprint-grid rounded-2xl">
         {/* Project Header */}
         <motion.div 
           className="mb-6 sm:mb-8 lg:mb-10"
@@ -292,7 +292,7 @@ function ProjectDetail() {
                     borderColor: 'var(--color-accent-blue)',
                     color: 'var(--color-text-primary)'
                   }}
-                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileHover={{ scale: 1.02, y: -2 }}
                 >
                   <FontAwesomeIcon icon={faExternalLinkAlt} />
                   Live Demo
@@ -310,7 +310,7 @@ function ProjectDetail() {
                     borderColor: 'var(--color-accent-blue)',
                     color: 'var(--color-text-primary)'
                   }}
-                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileHover={{ scale: 1.02, y: -2 }}
                 >
                   <FontAwesomeIcon icon={faCode} />
                   View Repository
